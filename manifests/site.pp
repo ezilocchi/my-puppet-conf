@@ -1,4 +1,5 @@
-$home = '/home/emiliano'
+$user = 'emiliano'
+$home = "/home/${user}"
 
 include commons
 include git

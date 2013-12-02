@@ -5,3 +5,4 @@ include commons
 include git
 include rbenv
 include vim
+include applications

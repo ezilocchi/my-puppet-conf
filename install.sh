@@ -8,8 +8,9 @@ apt-get install facter
 #TODO set a script to automatically set the current Linux distribution and version
 wget http://apt.puppetlabs.com//puppetlabs-release-saucy.deb #Ubuntu 13.10
 dpkg -i puppetlabs-release-saucy.deb #Ubuntu 13.10
-apt-get update
+rm puppetlabs-release-saucy.deb
 
+apt-get update
 apt-get install puppet
 
 puppet apply --verbose --modulepath=./modules manifests/site.pp

@@ -1,5 +1,5 @@
 class commons {
-  package { ['curl', 'ack-grep', 'exuberant-ctags']:
+  package { ['curl']:
     ensure => installed
   }
 }

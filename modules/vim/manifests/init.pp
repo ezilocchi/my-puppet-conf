@@ -1,8 +1,9 @@
 class vim {
-  package { 'vim':
+  package { ['vim', 'ack-grep', 'exuberant-ctags']:
     ensure => installed
   }
 
+  #TODO check if the gem is already installed
   exec { 'gem-rake':
     cwd     => "${home}",
     command => '/usr/bin/gem install rake'

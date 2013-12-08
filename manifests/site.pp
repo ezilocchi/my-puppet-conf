@@ -10,3 +10,4 @@ include applications
 #for RoR
 include postgresql
 include nodejs
+include sqlite

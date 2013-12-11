@@ -3,10 +3,10 @@ class vim {
     ensure => installed
   }
 
-  #TODO check if the gem is already installed
   exec { 'gem-rake':
     cwd     => "${home}",
-    command => '/usr/bin/gem install rake'
+    command => '/usr/bin/gem install rake',
+    unless  => '/usr/bin/gem list | grep rake'
   }
 
   #Ruby interpreter is installed as part of the puppet instalation process (see install.sh)

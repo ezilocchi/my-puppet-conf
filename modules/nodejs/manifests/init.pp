@@ -1,7 +1,7 @@
 class nodejs {
-  #TODO find a way to check if the repo was already added or nodejs is already intalled
   exec { 'add-nodejs-repo':
-    command => '/usr/bin/add-apt-repository ppa:chris-lea/node.js && /usr/bin/apt-get update'
+    command => '/usr/bin/add-apt-repository ppa:chris-lea/node.js && /usr/bin/apt-get update',
+    unless  => '/bin/ls -ls /usr/bin | grep nodejs'
   }
 
   package { 'nodejs':

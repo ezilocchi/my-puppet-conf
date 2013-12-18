@@ -4,6 +4,7 @@ $home = "/home/${user}"
 include commons
 include git
 include rbenv
+include jdk
 include vim
 include applications
 

@@ -6,8 +6,12 @@ class rbenv {
     require => [Package['curl'], Class['git']]
   }
 
-  file { '/etc/profile.d/set_rbenv.sh':
-    source  => ['puppet:///modules/rbenv/set_rbenv.sh'],
-    require => [Exec['rbenv-install']]
+  $rbenv_template = template('rbenv/set_rbenv.sh')
+  $rbenv_conf = "\'${rbenv_template}\'"
+
+  exec { 'rbenv-conf':
+    command => "/bin/echo ${rbenv_conf} >> ${home}/.bashrc",
+    require => Exec['rbenv-install'],
+    unless  => '/usr/bin/which rbenv'
   }
 }

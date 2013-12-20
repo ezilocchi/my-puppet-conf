@@ -20,5 +20,9 @@ echo "*** Installing puppet ***"
 apt-get update >> my-puppet-conf.log
 apt-get -y install puppet >> my-puppet-conf.log
 
+echo "*** cloning the repo ***"
+git clone https://github.com/ezilocchi/my-puppet-conf.git >> my-puppet-conf.log
+
 echo "*** Running puppet ***"
-puppet apply --verbose --modulepath=./modules manifests/site.pp || tee -a my-puppet-conf.log
+puppet apply --verbose --modulepath=./my-puppet-conf/modules my-puppet-conf/manifests/site.pp || tee -a my-puppet-conf.log
+rm -fr my-puppet-conf
